@@ -4,33 +4,9 @@
  * @return {number}
  */
 
-// var quickSelect = function(nums, l, r, k){
-//     if (l === r) return nums[l]
 
-//     const pivotIndex = l + Math.floor(Math.random() * (r - l + 1))
-//     // [nums[pivotIndex], nums[r]] = [nums[r], nums[pivotIndex]]
-//     const pivot = nums[r]
-//     let j = l
-//     for(let i=l;i<r;i++){
-//         if(nums[i] <= pivot){
-//             [nums[j], nums[i]] = [nums[i], nums[j]]
-//             j++
-//         }
-        
-//     }
-//     [nums[j], nums[r]] = [nums[r], nums[j]]
-
-//     if(j > k){
-//         return quickSelect(nums, l, j-1, k)
-//     }else if(j < k){
-//         return quickSelect(nums, j+1, r, k)
-//     }else{
-//         return nums[j]
-//     }
-// }
-var findKthLargest = function(nums, k) {
-    const quickSelect = (nums, left, right, targetIdx) => {
-        if (left === right) {
+var quickSelect = function(nums, left, right, targetIdx){
+    if (left === right) {
             return nums[left];
         }
 
@@ -59,8 +35,8 @@ var findKthLargest = function(nums, k) {
         } else {
             return nums[targetIdx];
         }
-    };
-
-    const targetIdx = nums.length - k;
-    return quickSelect(nums, 0, nums.length - 1, targetIdx);  
+}
+var findKthLargest = function(nums, k) {
+    const targetIdx = nums.length - k
+    return quickSelect(nums, 0, nums.length-1, targetIdx)
 };
